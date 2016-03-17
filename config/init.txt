@@ -55,7 +55,7 @@
 
 #----------------------Sync Server
 *SyncServer=net.vicp.lylab.server.runtime.SyncServer
-^taskQueue=&LYTaskQueue
+^maxHandlerSize=&maxIncomingConnection
 ^dispatcher=&dispatcher
 ^port=&port
 ^protocol=&protocol
