@@ -16,8 +16,8 @@ import net.vicp.lylab.utils.cache.LYCache;
 /**
  * 后台服务运行状态
  */
-@WebServlet("/runtime")
-public class Runtime extends HttpServlet {
+@WebServlet("/status")
+public class Status extends HttpServlet {
 	private static final long serialVersionUID = 3200296505570525661L;
 
 	/**
