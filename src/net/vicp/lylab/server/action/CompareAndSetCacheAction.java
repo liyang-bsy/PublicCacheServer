@@ -14,7 +14,7 @@ import net.vicp.lylab.utils.cache.LYCache;
 public class CompareAndSetCacheAction extends BaseAction {
 
 	private String key;
-	private Long expireTime;
+	private Integer expireTime;
 	private Boolean renew;
 	private Object oldData;
 	private Object data;
@@ -23,7 +23,7 @@ public class CompareAndSetCacheAction extends BaseAction {
 	public boolean foundBadParameter() {
 
 		key = (String) getRequest().getBody().get("key");
-		expireTime = (Long) getRequest().getBody().get("expireTime");
+		expireTime = (Integer) getRequest().getBody().get("expireTime");
 		renew = (Boolean) getRequest().getBody().get("renew");
 		oldData = getRequest().getBody().get("oldData");
 		data = getRequest().getBody().get("data");
@@ -79,7 +79,7 @@ public class CompareAndSetCacheAction extends BaseAction {
 				}
 	
 				if (expireTime == null)
-					expireTime =0L;
+					expireTime = 0;
 				cache.set(key, bytes, expireTime.intValue());
 			}
 

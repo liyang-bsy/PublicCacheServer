@@ -15,7 +15,7 @@ public class SetCacheAction extends BaseAction {
 	private String server;
 	private String module;
 	private String key;
-	private Long expireTime;
+	private Integer expireTime;
 	private Object data;
 
 	@Override
@@ -24,7 +24,7 @@ public class SetCacheAction extends BaseAction {
 		server = (String) getRequest().getBody().get("server");
 		module = (String) getRequest().getBody().get("module");
 		key = (String) getRequest().getBody().get("key");
-		expireTime = (Long) getRequest().getBody().get("expireTime");
+		expireTime = (Integer) getRequest().getBody().get("expireTime");
 		data = getRequest().getBody().get("data");
 
 		if(StringUtils.isBlank(server)) {
@@ -62,10 +62,10 @@ public class SetCacheAction extends BaseAction {
 				break;
 			}
 			if(expireTime == null)
-				expireTime = 0L;
+				expireTime = 0;
 
 			synchronized (lock) {
-				cache.set(server + "_" + module + "_" + key, bytes);
+				cache.set(server + "_" + module + "_" + key, bytes, expireTime.intValue());
 			}
 
 		getResponse().success(); } while (false);
