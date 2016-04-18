@@ -8,7 +8,7 @@
 
 #---------------------Logger
 *Logger=net.vicp.lylab.server.utils.Logger
-^filePath=D:/LYServer/record
+^filePath=D:/LYServer/PublicCacheServer/record
 ^fileSuffix=.log
 
 #---------------------Timer
@@ -31,7 +31,7 @@
 
 #---------------------Save Cache
 *CacheLifeCycle=net.vicp.lylab.utils.cache.CacheLifeCycle
-^savePath=D:/LYServer/LYCache
+^savePath=D:/LYServer/PublicCacheServer/LYCache
 ^lyCache=&LYCache
 
 #----------------------Filter chain

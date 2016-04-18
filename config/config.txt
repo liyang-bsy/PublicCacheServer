@@ -1,5 +1,5 @@
 [TREE]
-!debug=0
+!debug=1
 server=公共缓存服务
 
 $Actions=action.txt
