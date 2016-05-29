@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 
-import net.vicp.lylab.core.Singleton;
+import net.vicp.lylab.core.CoreDef;
 import net.vicp.lylab.utils.cache.LYCache;
 
 /**
@@ -36,7 +36,7 @@ public class Status extends HttpServlet {
 			if(false);
 			else if(cmd.equals("clearCache"))
 			{
-				((LYCache) Singleton.get("LYCache")).clear();
+				((LYCache) CoreDef.config.getConfig("Singleton").getObject("LYCache")).clear();
 				cmdResult = "ok";
 			}
 		}
@@ -45,6 +45,9 @@ public class Status extends HttpServlet {
 		content.append("<meta charset=\"UTF-8\">");
 		content.append("<body>");
 		content.append("当前时间：\t\t" + System.currentTimeMillis() + "<br/>");
+		content.append("当前缓存条目数：\t\t" + ((LYCache) CoreDef.config.getConfig("Singleton").getObject("LYCache")).getEntrySize() + "<br/>");
+		content.append("当前缓存容量：\t\t" + ((LYCache) CoreDef.config.getConfig("Singleton").getObject("LYCache")).getMemorySize() + "<br/>");
+		content.append("哈希算法：\t\t" + ((LYCache) CoreDef.config.getConfig("Singleton").getObject("LYCache")).getHashAlgorithm() + "<br/>");
 
 		if(!StringUtils.isBlank(cmdResult))
 			content.append("命令结果:<br/>" + cmdResult + "<br/>");
