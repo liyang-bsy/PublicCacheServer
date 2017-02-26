@@ -11,6 +11,7 @@ public class ServerRuntime implements ServletContextListener {
 	public static void main(String[] arg) {
 		try {
 			CoreDef.config.reload(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
+			System.out.println("server started");
 		} catch (Exception e) {
 			e.printStackTrace();
 			close();
